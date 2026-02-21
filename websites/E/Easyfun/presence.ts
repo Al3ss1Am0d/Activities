@@ -10,11 +10,11 @@ enum ActivityAssets {
 }
 
 function getGameIcon(): string | null {
-  const iconEl =
-    document.querySelector<HTMLImageElement>('img[data-nimg="1"][width="60"][height="60"]') ||
-    document.querySelector<HTMLImageElement>('img[data-nimg="1"][width="128"][height="128"]') ||
-    document.querySelector<HTMLImageElement>('img.size-25') || 
-    document.querySelector<HTMLImageElement>('img[data-nimg="1"]') 
+  const iconEl
+    = document.querySelector<HTMLImageElement>('img[data-nimg="1"][width="60"][height="60"]')
+      || document.querySelector<HTMLImageElement>('img[data-nimg="1"][width="128"][height="128"]')
+      || document.querySelector<HTMLImageElement>('img.size-25')
+      || document.querySelector<HTMLImageElement>('img[data-nimg="1"]')
 
   return iconEl?.src || null
 }
@@ -36,7 +36,7 @@ presence.on('UpdateData', async () => {
     gameName = rawName
       .split('-')
       .map(word =>
-        /^\d+$/.test(word) ? word : word.charAt(0).toUpperCase() + word.slice(1)
+        /^\d+$/.test(word) ? word : word.charAt(0).toUpperCase() + word.slice(1),
       )
       .join(' ')
 
